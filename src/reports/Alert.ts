@@ -9,7 +9,6 @@ export class Alert implements AlertInterface {
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     constructor(alertData: any) {
-
         this.pluginId = alertData.hasOwnProperty('pluginid') ? alertData['pluginid'] : ''
         this.alertRef = alertData.hasOwnProperty('alertref') ? alertData['alertref'] : ''
         this.alert = alertData.hasOwnProperty('alert') ? alertData['alert'] : ''
@@ -22,7 +21,7 @@ export class Alert implements AlertInterface {
         this.confidence = new Confidence(confidence)
 
         this.riskDesc = alertData.hasOwnProperty('riskdesc') ? alertData['riskdesc'] : ''
-        this.description = alertData.hasOwnProperty('desc') ? alertData['desk'] : ''
+        this.description = alertData.hasOwnProperty('desc') ? alertData['desc'] : ''
         this.count = alertData.hasOwnProperty('count') ? parseInt(alertData['count']) : 0
         this.solution = alertData.hasOwnProperty('solution') ? alertData['solution'] : ''
         this.otherInfo = alertData.hasOwnProperty('otherinfo') ? alertData['otherinfo'] : ''

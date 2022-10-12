@@ -286,6 +286,7 @@ function run() {
             const reportObj = new Report_1.Report(`${reportsDir}/${summaryFile}`, `${reportsDir}/${jsonFile}`);
             let reportWritersResult = false;
             if (createAnnotations) {
+                core.info('Let\'s write some annotations!');
                 const annotationWriter = new AnnotationWriter_1.AnnotationWriter();
                 reportWritersResult || (reportWritersResult = yield annotationWriter.write(reportObj));
             }
@@ -480,6 +481,7 @@ class Report {
                 core.warning('Unable to read summary report file');
                 throw new Error('Unable to read summary report file');
             }
+            console.log(data);
             const summaryData = JSON.parse(data);
             this.summary = new Summary_1.Summary(summaryData);
         });
@@ -490,6 +492,7 @@ class Report {
                 return;
             }
             const detailedData = JSON.parse(data);
+            console.log(data);
             // eslint-disable-next-line no-prototype-builtins
             if (detailedData.hasOwnProperty('site')) {
                 this.sites = [];
